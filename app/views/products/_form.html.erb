@@ -1,0 +1,92 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uniq_id %>
+    <%= form.text_field :uniq_id, id: :product_uniq_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :crawl_timestamp %>
+    <%= form.text_field :crawl_timestamp, id: :product_crawl_timestamp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_url %>
+    <%= form.text_field :product_url, id: :product_product_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_name %>
+    <%= form.text_field :product_name, id: :product_product_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_category_tree %>
+    <%= form.text_field :product_category_tree, id: :product_product_category_tree %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pid %>
+    <%= form.text_field :pid, id: :product_pid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retail_price %>
+    <%= form.text_field :retail_price, id: :product_retail_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discounted_price %>
+    <%= form.text_field :discounted_price, id: :product_discounted_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :product_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_FK_Advantage_product %>
+    <%= form.text_field :is_FK_Advantage_product, id: :product_is_FK_Advantage_product %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :product_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_rating %>
+    <%= form.text_field :product_rating, id: :product_product_rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :overall_rating %>
+    <%= form.text_field :overall_rating, id: :product_overall_rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand %>
+    <%= form.text_field :brand, id: :product_brand %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_specifications %>
+    <%= form.text_field :product_specifications, id: :product_product_specifications %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

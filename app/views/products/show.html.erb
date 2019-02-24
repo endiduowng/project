@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uniq:</strong>
+  <%= @product.uniq_id %>
+</p>
+
+<p>
+  <strong>Crawl timestamp:</strong>
+  <%= @product.crawl_timestamp %>
+</p>
+
+<p>
+  <strong>Product url:</strong>
+  <%= @product.product_url %>
+</p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @product.product_name %>
+</p>
+
+<p>
+  <strong>Product category tree:</strong>
+  <%= @product.product_category_tree %>
+</p>
+
+<p>
+  <strong>Pid:</strong>
+  <%= @product.pid %>
+</p>
+
+<p>
+  <strong>Retail price:</strong>
+  <%= @product.retail_price %>
+</p>
+
+<p>
+  <strong>Discounted price:</strong>
+  <%= @product.discounted_price %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @product.image %>
+</p>
+
+<p>
+  <strong>Is fk advantage product:</strong>
+  <%= @product.is_FK_Advantage_product %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Product rating:</strong>
+  <%= @product.product_rating %>
+</p>
+
+<p>
+  <strong>Overall rating:</strong>
+  <%= @product.overall_rating %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @product.brand %>
+</p>
+
+<p>
+  <strong>Product specifications:</strong>
+  <%= @product.product_specifications %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

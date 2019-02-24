@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uniq_id: MyString
+  crawl_timestamp: MyString
+  product_url: MyString
+  product_name: MyString
+  product_category_tree: MyString
+  pid: MyString
+  retail_price: MyString
+  discounted_price: MyString
+  image: MyString
+  is_FK_Advantage_product: MyString
+  description: MyString
+  product_rating: MyString
+  overall_rating: MyString
+  brand: MyString
+  product_specifications: MyString
+
+two:
+  uniq_id: MyString
+  crawl_timestamp: MyString
+  product_url: MyString
+  product_name: MyString
+  product_category_tree: MyString
+  pid: MyString
+  retail_price: MyString
+  discounted_price: MyString
+  image: MyString
+  is_FK_Advantage_product: MyString
+  description: MyString
+  product_rating: MyString
+  overall_rating: MyString
+  brand: MyString
+  product_specifications: MyString
