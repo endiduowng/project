@@ -1,1 +1,20 @@
 @import "bootstrap";
+@import "toastr";
+
+.site-header {
+  background-color: rgba(0, 0, 0, 85);
+}
+
+.pb-1, .py-1 {
+  padding-bottom: .25rem !important;
+}
+
+.pt-1, .py-1 {
+  padding-top: .25rem !important;
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
