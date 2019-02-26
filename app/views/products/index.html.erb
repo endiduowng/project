@@ -25,7 +25,7 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
+    <% @products[0..3].each do |product| %>
       <tr>
         <td><%= product.uniq_id %></td>
         <td><%= product.crawl_timestamp %></td>
