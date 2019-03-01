@@ -18,3 +18,10 @@
   top: 0;
   z-index: 1020;
 }
+
+.product-description {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 10px;
+}
