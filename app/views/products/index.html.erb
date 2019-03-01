@@ -1,53 +1,38 @@
-<h1>Products</h1>
+<div class="row">
+  <div class="col-9">
+    <h1>All Products</h1>
+    <div class="card-group">
+      <% @products[0..3].each do |product| %>
+        <%= render "product", { product: product} %>
+      <% end %>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Uniq</th>
-      <th>Crawl timestamp</th>
-      <th>Product url</th>
-      <th>Product name</th>
-      <th>Product category tree</th>
-      <th>Pid</th>
-      <th>Retail price</th>
-      <th>Discounted price</th>
-      <th>Image</th>
-      <th>Is fk advantage product</th>
-      <th>Description</th>
-      <th>Product rating</th>
-      <th>Overall rating</th>
-      <th>Brand</th>
-      <th>Product specifications</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h1>Sales</h1>
+    <div class="card-group">
+      <% @products[0..3].each do |product| %>
+        <%= render "product", { product: product} %>
+      <% end %>
+    </div>
 
-  <tbody>
-    <% @products[0..1].each do |product| %>
-      <tr>
-        <td><%= product.uniq_id %></td>
-        <td><%= product.crawl_timestamp %></td>
-        <td><%= product.product_url %></td>
-        <td><%= product.product_name %></td>
-        <td><%= product.product_category_tree %></td>
-        <td><%= product.pid %></td>
-        <td><%= product.retail_price %></td>
-        <td><%= product.discounted_price %></td>
-        <td><%= product.image %></td>
-        <td><%= product.is_FK_Advantage_product %></td>
-        <td><%= product.description %></td>
-        <td><%= product.product_rating %></td>
-        <td><%= product.overall_rating %></td>
-        <td><%= product.brand %></td>
-        <td><%= product.product_specifications %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <h1>Hots</h1>
+    <div class="card-group">
+      <% @products[0..3].each do |product| %>
+        <%= render "product", { product: product} %>
+      <% end %>
+    </div>
+  </div>
 
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+  <div class="col-3">
+    <h1>Top</h1>
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+      <%= link_to image_tag("http://img6a.flixcart.com/image/sofa-bed/j/f/y/fhd112-double-foam-fabhomedecor-leatherette-black-leatherette-1100x1100-imaeh3gemjjcg9ta.jpeg", class: "card-img-top", style: "width: 240px; height: 160px"), product_path(@products.first) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @products.first.product_name %></h5>
+        <p class="product-description"><%= @products.first.description %></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><%= @products.first.discounted_price %></small>
+      </div>
+    </div>
+  </div>
+</div>

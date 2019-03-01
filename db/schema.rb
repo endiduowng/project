@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20190226042927) do
     t.string "pid"
     t.string "retail_price"
     t.string "discounted_price"
-    t.string "image", limit: 6000
+    t.string "image"
     t.string "is_FK_Advantage_product"
-    t.string "description", limit: 6000
+    t.string "description"
     t.string "product_rating"
     t.string "overall_rating"
     t.string "brand"
-    t.string "product_specifications", limit: 6000
+    t.string "product_specifications"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
