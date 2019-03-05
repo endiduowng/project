@@ -1,77 +1,133 @@
-<p>
-  <strong>Uniq:</strong>
-  <%= @product.uniq_id %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4" style="padding-top: 50px;">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <% @product.image.split(/,/).each do |product, index| %>
+            <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>"></li>
+          <% end %>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag(@product.image.split(/,/).first, class: "card-img-top", style: "width: 340px; height: 400px") %>
+          </div>
 
-<p>
-  <strong>Crawl timestamp:</strong>
-  <%= @product.crawl_timestamp %>
-</p>
+          <% @product.image.split(/,/).each do |image, index| %>
+            <div class="carousel-item">
+              <%= image_tag(image, class: "card-img-top", style: "width: 340px; height: 400px") %>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
 
-<p>
-  <strong>Product url:</strong>
-  <%= @product.product_url %>
-</p>
+      <div style="text-align:center;">
+        <p><%= @product.image.split(/,/).size + 1 %> images</p>
+      </div>
+    </div>
+    <div class="col-8">
+      <p>
+        <%= @product.product_category_tree %>
+      </p>
 
-<p>
-  <strong>Product name:</strong>
-  <%= @product.product_name %>
-</p>
+      <p>
+        <strong><%= @product.product_name %></strong>
+      </p>
 
-<p>
-  <strong>Product category tree:</strong>
-  <%= @product.product_category_tree %>
-</p>
+      <div class="dropdown-divider"></div>
 
-<p>
-  <strong>Pid:</strong>
-  <%= @product.pid %>
-</p>
+      <p>
+        <strong>Retail price:</strong>
+        <%= @product.retail_price %> $
+      </p>
 
-<p>
-  <strong>Retail price:</strong>
-  <%= @product.retail_price %>
-</p>
+      <p>
+        <strong>Discounted price:</strong>
+        <%= @product.discounted_price %> $
+      </p>
 
-<p>
-  <strong>Discounted price:</strong>
-  <%= @product.discounted_price %>
-</p>
+      <p>
+        <strong>Product url:</strong>
+        <%= link_to "#{@product.product_url}", @product.product_url %>
+      </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @product.image %>
-</p>
+      <p>
+        <strong>Product rating:</strong>
+        <%= @product.product_rating %>
+      </p>
 
-<p>
-  <strong>Is fk advantage product:</strong>
-  <%= @product.is_FK_Advantage_product %>
-</p>
+      <p>
+        <strong>Overall rating:</strong>
+        <%= @product.overall_rating %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
 
-<p>
-  <strong>Product rating:</strong>
-  <%= @product.product_rating %>
-</p>
+      <div class="box_3tUR promotionBox_25uH"><div class="item_oXV2"><div class="ShippingMessage_QVDB" style="background-color: rgb(255, 244, 226);"><img src="//media3.scdn.vn/img2/2018/3_30/4B6MEO.png" class="icon_3cR2" alt="hỗ trợ phí vận chuyển"><p class="info">Miễn phí vận chuyển cho đơn hàng có giá trị từ <strong class="value"><font color="#e5101d">149.000</font></strong>, giảm tối đa <strong class="order"><font color="#7ed321">30.000 VNĐ</font></strong></p></div></div></div>
 
-<p>
-  <strong>Overall rating:</strong>
-  <%= @product.overall_rating %>
-</p>
+      <button type="button" class="btn" style="font-color: white; background-color: yellow;">Thêm vào giỏ hàng</button>
+      <%= image_tag("like.png", class: "img-responsive", style: "width: 32px; height: 32px; margin-left: 10px;")%>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand %>
-</p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Product specifications:</strong>
-  <%= @product.product_specifications %>
-</p>
+<div class="dropdown-divider"></div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div>
+
+</div>
+
+<div>
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-selected="true">Description</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-rate-tab" data-toggle="pill" href="#pills-rate" role="tab" aria-controls="pills-rate" aria-selected="false">Rate</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+      <p>
+        <strong>Pid:</strong>
+        <%= @product.pid %>
+      </p>
+
+      <p>
+        <strong>Is fk advantage product:</strong>
+        <%= @product.is_FK_Advantage_product %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @product.description %>
+      </p>
+
+
+      <p>
+        <strong>Brand:</strong>
+        <%= @product.brand %>
+      </p>
+
+      <p>
+        <strong>Product specifications:</strong>
+        <%= @product.product_specifications %>
+      </p>
+    </div>
+    <div class="tab-pane fade" id="pills-rate" role="tabpanel" aria-labelledby="pills-rate-tab">...</div>
+  </div>
+</div>
+
+<div class="dropdown-divider"></div>
+
+<div>
+  <strong>Similar products</strong>
+</div>

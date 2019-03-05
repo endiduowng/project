@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190226042927) do
+ActiveRecord::Schema.define(version: 20190305100602) do
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "uniq_id"
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20190226042927) do
     t.string "pid"
     t.string "retail_price"
     t.string "discounted_price"
-    t.string "image"
+    t.string "image", limit: 6000
     t.string "is_FK_Advantage_product"
-    t.string "description"
+    t.string "description", limit: 6000
     t.string "product_rating"
     t.string "overall_rating"
     t.string "brand"
-    t.string "product_specifications"
+    t.string "product_specifications", limit: 6000
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20190226042927) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "provider"
+    t.string "uid"
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
