@@ -34,5 +34,16 @@
         <small class="text-muted"><%= @products.first.discounted_price %></small>
       </div>
     </div>
+
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+      <%= link_to image_tag("http://img6a.flixcart.com/image/sofa-bed/j/f/y/fhd112-double-foam-fabhomedecor-leatherette-black-leatherette-1100x1100-imaeh3gemjjcg9ta.jpeg", class: "card-img-top", style: "width: 240px; height: 160px"), product_path(@products.first) %>
+      <div class="card-body">
+        <h5 class="card-title"><%= @products.first.product_name %></h5>
+        <p class="product-description"><%= @products.first.description %></p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><%= @products.first.discounted_price %></small>
+      </div>
+    </div>
   </div>
 </div>
