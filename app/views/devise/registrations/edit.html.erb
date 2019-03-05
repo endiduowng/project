@@ -51,6 +51,27 @@
       </div>
 
       <div class="form-group row">
+        <%= f.label :image, class: "col-sm-3 col-form-label text-right font-weight-bold" %>
+
+        <div class="col-sm-9">
+          <% if current_user.image.url.present? %>
+          <div class="row">
+            <div class="col-sm-2"></div>
+            <%= f.label :remove_image, class: "col-sm-10" do %>
+                  Remove current profile picture?
+                  <%= f.check_box :remove_image %>
+            <% end %>
+          </div>
+          <% end %>
+
+          <div class="row">
+            <%= f.file_field :image, class: "col-sm-9", onchange: "readURL(this);"%>
+            <%= f.hidden_field :image_cache, class: "col-sm-3"%>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
         <div class="col-sm-3"></div>
         <div class="col-sm-9">
           <%= f.submit "Update", class: "btn btn-primary" %>
@@ -59,3 +80,16 @@
     <% end %>
   </div>
 </div>
+
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#user_image')
+        .attr('src', e.target.result);
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
