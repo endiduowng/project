@@ -1,6 +1,10 @@
 <div class="row justify-content-md-center profile-wrapper">
   <div class="col-md-4 text-center">
-    <%= image_tag("default-user.png", class: "round-img", style: "width: 152px; height: 152px") %>
+    <% if current_user.image.url.present? %>
+      <%= image_tag (current_user.image.url), class: "rounded-circle img-responsive", alt: "Profile pic", id: "user_image", style: "width: 152px; height: 152px;" %>
+    <% else %>
+      <%= image_tag ("default-user.png"), class: "rounded-circle img-responsive", alt: "Profile pic", id: "user_image", style: "width: 152px; height: 152px;" %>
+    <% end %>
   </div>
   <div class="col-md-8">
     <div class="row">
