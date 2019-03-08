@@ -1,0 +1,9 @@
+<% if is_liked.present? %>
+  <%= link_to like_path(is_liked), method: :delete, remote: true do %>
+      <%= image_tag("liked.png", class: "img-responsive", style: "width: 48px; height: 48px;")%>
+  <% end %>
+<% else %>
+  <%= link_to product_likes_path(product), method: :post, remote: true do %>
+      <%= image_tag("like.png", class: "img-responsive", style: "width: 48px; height: 48px;")%>
+  <% end %>
+<% end %>

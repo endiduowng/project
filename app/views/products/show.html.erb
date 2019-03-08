@@ -32,6 +32,16 @@
       <div style="text-align:center;">
         <p><%= @product.image.split(/,/).size + 1 %> images</p>
       </div>
+
+      <% if user_signed_in? %>
+        <div class="row">
+          <div class= "col-6" id="like-icon-product-<%= @product.id.to_s %>">
+            <%= render "like_icon", {is_liked: @product.is_liked(current_user), product: @product} %>
+          </div>
+
+          <div class="col-6">Share</div>
+        </div>
+      <% end %>
     </div>
     <div class="col-8">
       <p>
@@ -73,7 +83,6 @@
       <div class="box_3tUR promotionBox_25uH"><div class="item_oXV2"><div class="ShippingMessage_QVDB" style="background-color: rgb(255, 244, 226);"><img src="//media3.scdn.vn/img2/2018/3_30/4B6MEO.png" class="icon_3cR2" alt="hỗ trợ phí vận chuyển"><p class="info">Miễn phí vận chuyển cho đơn hàng có giá trị từ <strong class="value"><font color="#e5101d">149.000</font></strong>, giảm tối đa <strong class="order"><font color="#7ed321">30.000 VNĐ</font></strong></p></div></div></div>
 
       <button type="button" class="btn" style="font-color: white; background-color: yellow;">Thêm vào giỏ hàng</button>
-      <%= image_tag("like.png", class: "img-responsive", style: "width: 32px; height: 32px; margin-left: 10px;")%>
 
     </div>
   </div>
