@@ -6,12 +6,12 @@
     <a class="py-2 d-none d-md-inline-block" href="/">Home</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Category</a>
-    <nav class="py-2 navbar navbar-light">
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </nav>
+        <%= form_for :term, url: search_path, method: :get do |form| %>
+        <div class="input-group" style="width:300px;">
+          <%= text_field_tag :term, params[:term], class: "form-control", placeholder: "Search" %>
+          <%= submit_tag "Go", name: nil, class: "input-group-append btn btn-outline-primary" %>
+        </div>
+    <% end %>
     <% if user_signed_in? %>
       <div>
         <a class="py-2 d-none d-md-inline-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"" href="#">
