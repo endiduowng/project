@@ -1,0 +1,19 @@
+<div class="container" style="min-height: 550px;">
+  <h2>Search Results for: <i><%= params[:term] %></i></h2>
+  <h2><%= @products.size %> results</h2>
+
+  <% if @products %>
+    <ul>
+      <% @products.each do |product| %>
+        <li>
+          <h3>
+            <%= link_to product.product_name, product_path(product.id) %>
+          </h3>
+          <p><%= product.retail_price %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Your search did not match any documents.</p>
+  <% end %>
+</div>
