@@ -82,7 +82,7 @@
 
       <div class="box_3tUR promotionBox_25uH"><div class="item_oXV2"><div class="ShippingMessage_QVDB" style="background-color: rgb(255, 244, 226);"><img src="//media3.scdn.vn/img2/2018/3_30/4B6MEO.png" class="icon_3cR2" alt="hỗ trợ phí vận chuyển"><p class="info">Miễn phí vận chuyển cho đơn hàng có giá trị từ <strong class="value"><font color="#e5101d">149.000</font></strong>, giảm tối đa <strong class="order"><font color="#7ed321">30.000 VNĐ</font></strong></p></div></div></div>
 
-      <button type="button" class="btn" style="font-color: white; background-color: yellow;">Thêm vào giỏ hàng</button>
+      <%= button_to 'Add to Cart', line_items_path(:product_id => @product) %>
 
     </div>
   </div>
