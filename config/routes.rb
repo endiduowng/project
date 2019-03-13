@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   get "search", to: "search#search"
+
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 end

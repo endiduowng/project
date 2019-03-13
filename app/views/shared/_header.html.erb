@@ -4,13 +4,15 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
     </a>
     <a class="py-2 d-none d-md-inline-block" href="/">Home</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Category</a>
-        <%= form_for :term, url: search_path, method: :get do |form| %>
-        <div class="input-group" style="width:300px;">
-          <%= text_field_tag :term, params[:term], class: "form-control", placeholder: "Search" %>
-          <%= submit_tag "Go", name: nil, class: "input-group-append btn btn-outline-primary" %>
-        </div>
+    <div class="col-xs-6 text-right">
+        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+      </div>
+    <%= form_for :term, url: search_path, method: :get do |form| %>
+      <div class="input-group" style="width:300px;">
+        <%= text_field_tag :term, params[:term], class: "form-control", placeholder: "Search" %>
+        <%= submit_tag "Go", name: nil, class: "input-group-append btn btn-outline-primary" %>
+      </div>
     <% end %>
     <% if user_signed_in? %>
       <div>
