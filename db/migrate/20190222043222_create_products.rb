@@ -7,8 +7,8 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.string :product_name
       t.string :product_category_tree
       t.string :pid
-      t.string :retail_price
-      t.string :discounted_price
+      t.decimal :retail_price
+      t.decimal :discounted_price
       t.string :image
       t.string :is_FK_Advantage_product
       t.string :description
