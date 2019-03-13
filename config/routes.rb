@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users,
     path: '',
@@ -10,6 +18,10 @@ Rails.application.routes.draw do
   resources :products do
     resources :likes, only: [:create, :destroy], shallow: true
   end
+
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'products#index'
 
