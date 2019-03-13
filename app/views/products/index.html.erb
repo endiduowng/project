@@ -24,7 +24,9 @@
 
   <div class="col-3">
     <div id="cart">
-      <%= render current_cart %>
+      <%= hide_cart_if(current_cart.line_items.empty?, :id => "cart") do %>
+        <%= render current_cart %>
+      <% end %>
     </div>
   </div>
 </div>
