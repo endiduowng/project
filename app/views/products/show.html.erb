@@ -84,6 +84,10 @@
 
       <%= button_to 'Add to Cart', line_items_path(:product_id => @product) %>
 
+      Speed  : <%= rating_for @product, 'speed' %>
+      <p>Engine : <%= rating_for @product, 'engine' %></p>
+      <p>Price  : <%= rating_for @product, 'price' %></p>
+
     </div>
   </div>
 </div>
@@ -131,7 +135,9 @@
         <%= @product.product_specifications %>
       </p>
     </div>
-    <div class="tab-pane fade" id="pills-rate" role="tabpanel" aria-labelledby="pills-rate-tab">...</div>
+    <div class="tab-pane fade" id="pills-rate" role="tabpanel" aria-labelledby="pills-rate-tab">
+
+    </div>
   </div>
 </div>
 

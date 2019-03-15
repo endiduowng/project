@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   include Elasticsearch::Model::Callbacks
 
   searchkick
+  ratyrate_rateable "speed", "engine", "price"
 
   has_many :likes
   has_many :line_items
