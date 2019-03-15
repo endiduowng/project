@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :likes
 
+  ratyrate_rater
+
   # nhan dang tai khoan twitter
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

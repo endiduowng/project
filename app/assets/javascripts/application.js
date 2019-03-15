@@ -17,3 +17,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require toastr
+//= require jquery.raty
+//= require ratyrate
