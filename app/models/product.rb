@@ -1,6 +1,7 @@
 require "elasticsearch/model"
 
 class Product < ApplicationRecord
+  ratyrate_rateable "speed", "engine", "price"
 
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
