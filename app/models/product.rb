@@ -9,6 +9,7 @@ class Product < ApplicationRecord
 
   has_many :likes
   has_many :line_items
+  has_many :reviews
   before_destroy :check_if_has_line_item
 
   def is_liked user

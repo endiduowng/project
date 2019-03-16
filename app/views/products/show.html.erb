@@ -1,4 +1,6 @@
-<div class="container">
+<div class="row">
+  <div class="col-9">
+    <div class="container">
   <div class="row">
     <div class="col-4" style="padding-top: 50px;">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -69,10 +71,9 @@
         <%= link_to "#{@product.product_url}", @product.product_url %>
       </p>
 
-      <p>
-        <strong>Product rating:</strong>
-        <%= @product.product_rating %>
-      </p>
+      <div class='star-rating' data-score=<%= @avg_rating %>></div>
+      <em><%= "#{@reviews.size} reviews" %></em>
+
 
       <p>
         <strong>Overall rating:</strong>
@@ -82,8 +83,24 @@
 
       <div class="box_3tUR promotionBox_25uH"><div class="item_oXV2"><div class="ShippingMessage_QVDB" style="background-color: rgb(255, 244, 226);"><img src="//media3.scdn.vn/img2/2018/3_30/4B6MEO.png" class="icon_3cR2" alt="hỗ trợ phí vận chuyển"><p class="info">Miễn phí vận chuyển cho đơn hàng có giá trị từ <strong class="value"><font color="#e5101d">149.000</font></strong>, giảm tối đa <strong class="order"><font color="#7ed321">30.000 VNĐ</font></strong></p></div></div></div>
 
-      <%= button_to 'Add to Cart', line_items_path(:product_id => @product) %>
+      <%= button_to 'Add to Cart',
+                          line_items_path(:product_id => @product),
+                          :remote => true %>
 
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @product.product_name %></h1>
+        <% if @reviews.blank? %>
+          <h3>No reviews just yet, would you like to add the first!</h3>
+          <%= link_to "Write Review", new_product_review_path(@product), class: "btn btn-primary" %>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p><%= review.comment %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -140,3 +157,23 @@
 <div>
   <strong>Similar products</strong>
 </div>
+  </div>
+
+  <div class="col-3">
+    <div id="cart">
+      <%= hide_cart_if(current_cart.line_items.empty?, :id => "cart") do %>
+        <%= render current_cart %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

@@ -12,6 +12,14 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @is_liked = @product.is_liked(current_user)
+    @cart = current_cart
+
+    @reviews = @product.reviews.to_a
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+      @avg_rating = @product.reviews.average(:rating).round(2)
+    end
   end
 
   # GET /products/new
