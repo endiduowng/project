@@ -12,8 +12,8 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.string :image
       t.string :is_FK_Advantage_product
       t.string :description
-      t.string :product_rating
-      t.string :overall_rating
+      t.float :product_rating
+      t.float :overall_rating
       t.string :brand
       t.string :product_specifications
 

@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
     else
       @product.reviews.average(:product_rating).round(2)
     end
+
+    @product.update_attributes overall_rating: @avg_rating
   end
 
   # GET /products/new

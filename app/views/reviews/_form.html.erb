@@ -10,6 +10,8 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
   <div class="form-group row">
     <%= f.label :product_rating, class: 'col-sm-2 form-control-label' %>
     <div class="col-sm-6" id='star-rating'></div>
