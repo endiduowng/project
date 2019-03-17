@@ -86,22 +86,6 @@
                               line_items_path(:product_id => @product),
                               :remote => true %>
 
-
-          <div class="col-md-7 col-md-offset-1">
-            <h1 class="review_title"><%= @product.product_name %></h1>
-            <% if @reviews.blank? %>
-              <h3>No reviews just yet, would you like to add the first!</h3>
-              <%= link_to "Write Review", new_product_review_path(@product), class: "btn btn-primary" %>
-            <% else %>
-              <% @reviews.each do |review| %>
-                <div class="reviews">
-                  <div class="star-rating" data-score= <%= review.product_rating %> ></div>
-                  <p><%= review.comment %></p>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-
         </div>
       </div>
     </div>
@@ -117,9 +101,11 @@
         <li class="nav-item">
           <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-selected="true">Description</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="pills-rate-tab" data-toggle="pill" href="#pills-rate" role="tab" aria-controls="pills-rate" aria-selected="false">Rate</a>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-rate-tab" data-toggle="pill" href="#pills-rate" role="tab" aria-controls="pills-rate" aria-selected="false">Rate</a>
+          </li>
+        <% end %>
       </ul>
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
@@ -149,7 +135,25 @@
             <%= @product.product_specifications %>
           </p>
         </div>
-        <div class="tab-pane fade" id="pills-rate" role="tabpanel" aria-labelledby="pills-rate-tab">...</div>
+        <% if user_signed_in? %>
+        <div class="tab-pane fade" id="pills-rate" role="tabpanel" aria-labelledby="pills-rate-tab">
+          <div class="col-md-12 col-md-offset-1">
+            <h1 class="review_title"><%= @product.product_name %></h1>
+            <% if !Review.find_by(user_id: current_user.id, product_id: @product.id) %>
+              <h3>No reviews just yet, would you like to add the first!</h3>
+              <%= link_to "Write Review", new_product_review_path(@product), class: "btn btn-primary" %>
+            <% else %>
+              <% @reviews.each do |review| %>
+                <div class="reviews">
+                  <strong><%= review.user.email %></strong>
+                  <div class="star-rating" data-score= <%= review.product_rating %> ></div>
+                  <p><%= review.comment %></p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
 
