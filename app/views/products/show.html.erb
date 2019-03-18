@@ -142,7 +142,7 @@
             <% if !Review.find_by(user_id: current_user.id, product_id: @product.id) %>
               <h3>No reviews just yet, would you like to add the first!</h3>
               <%= link_to "Write Review", new_product_review_path(@product), class: "btn btn-primary" %>
-            <% else %>
+            <% end %>
               <% @reviews.each do |review| %>
                 <div class="reviews">
                   <strong><%= review.user.email %></strong>
@@ -150,7 +150,6 @@
                   <p><%= review.comment %></p>
                 </div>
               <% end %>
-            <% end %>
           </div>
         </div>
         <% end %>
