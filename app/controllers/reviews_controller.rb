@@ -31,6 +31,9 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        score = @product.reviews.average(:product_rating).round(2)
+        @product.update_attributes overall_rating: score
+
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
