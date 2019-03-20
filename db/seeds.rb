@@ -6809,3 +6809,32 @@ Product.create(
  }
 ]
 )
+
+require 'faker'
+include Faker
+
+User.destroy_all
+
+# using faker gem to create unique names to create users
+n = 0;
+
+30.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@gmail.com"
+  password = "123456"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
+
+
+200.times do
+  user = User.all[rand(0...30)]
+  product = Product.all[rand(0...400)]
+  if user.products.include?(product)
+    next
+  else
+    user.products << product
+  end
+end
