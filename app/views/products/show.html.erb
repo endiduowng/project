@@ -158,9 +158,24 @@
 
     <div class="dropdown-divider"></div>
 
-    <div>
-      <strong>Similar products</strong>
-    </div>
+    <% if user_signed_in? %>
+      <div>
+        <strong>Similar products</strong>
+        <table><h2>Recommended Products for <%= current_user.email %>:</h2>
+          <tr>
+            <th>Product</th>
+            <th>Rating</th>
+          </tr>
+
+          <% current_user.recommend_products.each do |key, value| %>
+          <tr>
+            <td><%= key.product_name %></td>
+            <td><%= value.round(2) %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    <% end %>
   </div>
 
   <div class="col-3">
