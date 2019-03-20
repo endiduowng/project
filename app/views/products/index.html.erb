@@ -14,12 +14,15 @@
       <% end %>
     </div>
 
-    <h1>Hots</h1>
-    <div class="card-group">
-      <% @products[0..3].each do |product| %>
-        <%= render "product", { product: product} %>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <h1>Recommended products for you</h1>
+      <div class="card-group">
+        <% current_user.recommend_products[0..3].each do |key, value| %>
+          <%= render "product", { product: key} %>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 
   <div class="col-3">
