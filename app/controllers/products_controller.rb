@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @cart = current_cart
+    @top_reviews = Product.all.order(:overall_rating => :desc)
   end
 
   # GET /products/1

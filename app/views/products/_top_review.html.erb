@@ -1,0 +1,19 @@
+<% @top_reviews[0..2].each do |product| %>
+  <div class="card" style="margin-top: 10px;">
+    <%= link_to image_tag( product.image.split(/,/).first, class: "card-img-top", style: "width: 200px; height: 160px;"), product_path(product) %>
+    <div class="card-body">
+      <h5 class="card-title"><%= product.product_name %></h5>
+      <p class="product-description"><%= product.description %></p>
+      <div class='star-rating' data-score=<%= product.overall_rating %>></div>
+    </div>
+  </div>
+<% end %>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
