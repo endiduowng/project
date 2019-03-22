@@ -3,6 +3,7 @@
   <div class="card-body">
     <h5 class="card-title"><%= product.product_name %></h5>
     <p class="product-description"><%= product.description %></p>
+    <div class='star-rating' data-score=<%= product.overall_rating %>></div>
   </div>
   <div class="card-footer">
     <small class="text-muted"><%= product.discounted_price %> $</small>
@@ -11,3 +12,12 @@
                           :remote => true %>
   </div>
 </div>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

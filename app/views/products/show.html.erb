@@ -12,12 +12,12 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <%= image_tag(@product.image.split(/,/).first, class: "card-img-top", style: "width: 340px; height: 400px") %>
+                <%= image_tag(@product.image.split(/,/).first, class: "card-img-top", style: "width: 240px; height: 300px") %>
               </div>
 
               <% @product.image.split(/,/).each do |image, index| %>
                 <div class="carousel-item">
-                  <%= image_tag(image, class: "card-img-top", style: "width: 340px; height: 400px") %>
+                  <%= image_tag(image, class: "card-img-top", style: "width: 240px; height: 300px") %>
                 </div>
               <% end %>
             </div>
@@ -40,8 +40,6 @@
               <div class= "col-6" id="like-icon-product-<%= @product.id.to_s %>">
                 <%= render "like_icon", {is_liked: @product.is_liked(current_user), product: @product} %>
               </div>
-
-              <div class="col-6">Share</div>
             </div>
           <% end %>
         </div>
