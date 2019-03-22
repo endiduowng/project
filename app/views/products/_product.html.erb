@@ -3,11 +3,19 @@
   <div class="card-body">
     <h5 class="card-title"><%= product.product_name %></h5>
     <p class="product-description"><%= product.description %></p>
+    <div class='star-rating' data-score=<%= product.overall_rating %>></div>
   </div>
   <div class="card-footer">
     <small class="text-muted"><%= product.discounted_price %> $</small>
-    <%= button_to 'Add to Cart',
-                          line_items_path(:product_id => product),
-                          :remote => true %>
+    <%=link_to image_tag("cart-add-icon.png", class: "img-responsive", style: "width: 30px; height: 30px; float: right"), product_path(product) %>
   </div>
 </div>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
