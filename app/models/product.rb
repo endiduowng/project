@@ -15,6 +15,8 @@ class Product < ApplicationRecord
 
   before_destroy :check_if_has_line_item
 
+  paginates_per 4
+
   def is_liked user
     if user
       Like.find_by(user_id: user.id, product_id: id)

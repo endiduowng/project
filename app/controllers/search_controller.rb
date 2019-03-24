@@ -5,5 +5,8 @@ class SearchController < ApplicationController
     else
       @products = Product.search params[:term]
     end
+    @size = @products.size
+
+    @products = Kaminari.paginate_array(@products).page(params[:page]).per(8)
   end
 end
