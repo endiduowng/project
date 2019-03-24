@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.all.page params[:page]
     @cart = current_cart
     @top_reviews = Product.all.order(:overall_rating => :desc)
   end

@@ -1,18 +1,20 @@
 <div class="container" style="min-height: 550px;">
   <h2>Search Results for: <i><%= params[:term] %></i></h2>
-  <h2><%= @products.size %> results</h2>
+  <h2><%= @size %> results</h2>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+      <li class="page-item"><%= link_to_prev_page @products, "Previous", class: "page-link" %></li>
+      <li class="page-item"><%= link_to_next_page @products, "Next", class: "page-link" %></li>
+    </ul>
+  </nav>
 
   <% if @products %>
-    <ul>
-      <% @products.each do |product| %>
-        <li>
-          <h3>
-            <%= link_to product.product_name, product_path(product.id) %>
-          </h3>
-          <p><%= product.retail_price %></p>
-        </li>
+    <div class="row">
+      <% @products.each do |product|%>
+        <%= render "result", {product: product} %>
       <% end %>
-    </ul>
+    </div>
   <% else %>
     <p>Your search did not match any documents.</p>
   <% end %>

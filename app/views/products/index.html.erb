@@ -1,8 +1,16 @@
 <div class="row">
   <div class="col-9">
     <h1>All Products</h1>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item"><%= link_to_prev_page @products, "Previous", class: "page-link" %></li>
+        <li class="page-item"><%= link_to_next_page @products, "Next", class: "page-link" %></li>
+      </ul>
+    </nav>
+
     <div class="card-group">
-      <% @products[0..3].each do |product| %>
+      <% @products.each do |product| %>
         <%= render "product", { product: product} %>
       <% end %>
     </div>
