@@ -1,5 +1,9 @@
-<h1>New Review</h1>
+<div class="container" style="padding:auto;">
+  <h1>New Review</h1>
 
-<%= render 'form', review: @review %>
-
-<%= link_to 'Back', reviews_path %>
+  <section>
+    <div class="container">
+      <%= render 'form', {review: @review, product: @product} %>
+    </div>
+  </section>
+</div>

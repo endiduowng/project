@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all.page params[:page]
+    @products = Product.all
     @cart = current_cart
     @top_reviews = Product.all.order(:overall_rating => :desc)
   end
@@ -14,11 +14,6 @@ class ProductsController < ApplicationController
   def show
     @is_liked = @product.is_liked(current_user)
     @reviews = @product.reviews.to_a
-    @avg_rating = if @reviews.blank?
-      0
-    else
-      @product.reviews.average(:product_rating).round(2)
-    end
   end
 
   # GET /products/new
