@@ -17,9 +17,20 @@
     </div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="product-pic-zoom">
-          <img><%= image_tag(@product.image.split(/,/).first, class: "product-big-img") %>
+
+        <div class="product-item">
+          <div class="pi-pic">
+            <div class="product-pic-zoom">
+              <img><%= image_tag(@product.image.split(/,/).first, class: "product-big-img") %>
+            </div>
+            <div class="pi-links">
+            <div class="product-like" id="like-icon-product-<%= @product.id.to_s %>">
+                <%= render "like_icon", {is_liked: @product.is_liked(current_user), product: @product} %>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
           <div class="product-thumbs-track">
             <div class="pt active" data-imgbigurl="<%= @product.image.split(/,/).first %>"><img><%= image_tag(@product.image.split(/,/).first) %></div>
@@ -27,6 +38,7 @@
             <% @product.image.split(/,/)[1..@product.image.split(/,/).size].each do |a| %>
             <div class="pt" data-imgbigurl="<%= a %>"><img><%= image_tag(a) %></div>
             <% end %>
+
           </div>
         </div>
       </div>
