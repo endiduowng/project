@@ -1,40 +1,70 @@
-<nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="/">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
-    </a>
-    <a class="py-2 d-none d-md-inline-block" href="/">Home</a>
-    <a class="py-2 d-none d-md-inline-block" href="#">Category</a>
-
-    <div id="cart-header">
-      <%= render "shared/cart_header", {cart: @cart} %>
-    </div>
-
-        <%= form_for :term, url: search_path, method: :get do |form| %>
-        <div class="input-group" style="width:300px;">
-          <%= text_field_tag :term, params[:term], class: "form-control", placeholder: "Search" %>
-          <%= submit_tag "Go", name: nil, class: "input-group-append btn btn-outline-primary" %>
+<header class="header-section">
+  <div class="header-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 text-center text-lg-left">
+          <a href="/" class="site-logo">
+            <img src="<%= image_path("logo.png") %>">
+          </a>
         </div>
-    <% end %>
-    <% if user_signed_in? %>
-      <div>
-        <a class="py-2 d-none d-md-inline-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"" href="#">
-          <%= current_user.email %>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-          <%= link_to user_path(current_user) do %>
-            <button class="dropdown-item" type="button">Profile</button>
-          <% end %>
-          <button class="dropdown-item" type="button">Cart</button>
-          <div class="dropdown-divider"></div>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <button class="dropdown-item" type="button">Log out</button>
-          <% end %>
+        <div class="col-xl-6 col-lg-5">
+          <form class="header-search-form">
+            <input type="text" placeholder="Search on divisima ....">
+            <button><i class="flaticon-search"></i></button>
+          </form>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="user-panel">
+            <div class="up-item">
+              <i class="flaticon-profile"></i>
+              <% if user_signed_in? %>
+                <%= link_to "#{current_user.email}", user_path(current_user) %>
+              <% else %>
+                <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Create Account", new_user_registration_path %>
+              <% end %>
+            </div>
+            <div class="up-item">
+              <div class="shopping-card">
+                <i class="flaticon-bag"></i>
+                <span>0</span>
+              </div>
+              <a href="#">Shopping Cart</a>
+            </div>
+          </div>
         </div>
       </div>
-    <% else %>
-      <%= link_to "Log in", new_user_session_path, class: "py-2 d-none d-md-inline-block" %>
-      <%= link_to "Sign up", new_user_registration_path, class: "py-2 d-none d-md-inline-block" %>
-    <% end %>
+    </div>
   </div>
-</nav>
+  <nav class="main-navbar">
+    <div class="container">
+      <!-- menu -->
+      <ul class="main-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Jewelry
+          <span class="new">New</span>
+        </a></li>
+        <li><a href="#">Shoes</a>
+          <ul class="sub-menu">
+            <li><a href="#">Sneakers</a></li>
+            <li><a href="#">Sandals</a></li>
+            <li><a href="#">Formal Shoes</a></li>
+            <li><a href="#">Boots</a></li>
+            <li><a href="#">Flip Flops</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Pages</a>
+          <ul class="sub-menu">
+            <li><a href="#">Product Page</a></li>
+            <li><a href="#">Category Page</a></li>
+            <li><a href="#">Cart Page</a></li>
+            <li><a href="#">Checkout Page</a></li>
+            <li><a href="#">Contact Page</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
