@@ -50,15 +50,18 @@
     <div class="tab-pane fade show active" id="pills-like" role="tabpanel" aria-labelledby="pills-like-tab">
       <div class="row">
         <% @liked.each do |like| %>
-          <div class="card col-3">
-            <%= link_to image_tag(like.product.image.split(/,/).first, class: "card-img-top", style: "width: 200px; height: 160px"), product_path(like.product) %>
-            <div class="card-body">
-              <h5 class="card-title"><%= like.product.product_name %></h5>
-              <p class="product-description"><%= like.product.description %></p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted"><%= like.product.discounted_price %> $</small>
-              <%=link_to image_tag("cart-add-icon.png", class: "img-responsive", style: "width: 30px; height: 30px; float: right"), product_path(like.product) %>
+          <div class="col-lg-3 col-sm-6">
+            <div class="product-item">
+              <div class="pi-pic">
+                <%= link_to image_tag(like.product.image.split(/,/).first, class: "image-product"), product_path(like.product.id) %>
+                <div class="pi-links">
+                  <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                </div>
+              </div>
+              <div class="pi-text">
+                <h6><%= like.product.discounted_price %>$</h6>
+                <p><%= like.product.product_name %></p>
+              </div>
             </div>
           </div>
         <% end %>
