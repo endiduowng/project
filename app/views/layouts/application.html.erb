@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Project</title>
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
@@ -9,9 +10,7 @@
     <meta name="description" content=" Divisima | eCommerce Template">
     <meta name="keywords" content="divisima, eCommerce, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="img/favicon.ico" rel="shortcut icon"/>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
-
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -20,7 +19,9 @@
 
   <body>
     <%= render "shared/header" %>
-    <%= yield %>
+    <div style="min-height: 320px;">
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <% if flash.any? %>
       <script font="20px" type="text/javascript">

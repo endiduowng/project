@@ -11,13 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.raty
-//= require rails-ujs
-//= require turbolinks
-//= require_tree .
-//= require popper
-//= require bootstrap-sprockets
-//= require toastr
 //= require jquery-3.2.1.min
 //= require bootstrap.min
 //= require jquery.slicknav.min
@@ -26,3 +19,10 @@
 //= require jquery.zoom.min
 //= require jquery-ui.min
 //= require main
+//= require jquery.raty
+//= require rails-ujs
+//= require turbolinks
+//= require_tree .
+//= require popper
+//= require bootstrap-sprockets
+//= require toastr
