@@ -8,10 +8,18 @@
           </a>
         </div>
         <div class="col-xl-6 col-lg-5">
-          <form class="header-search-form">
-            <input type="text" placeholder="Search on divisima ....">
+          <!-- <form class="header-search-form">
+            <input type="text" placeholder="Search on product...">
             <button><i class="flaticon-search"></i></button>
-          </form>
+          </form> -->
+          <!-- <form class="header-search-form"> -->
+          <div class="header-search-form">
+            <%= form_for :term, url: search_path, method: :get do |form| %>
+              <%= text_field_tag :term, params[:term], placeholder: "Search on product..." %>
+              <button><i class="flaticon-search"></i></button>
+            <% end %>
+          </div>
+          <!-- </form> -->
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="user-panel">
