@@ -21,13 +21,23 @@
         <li><a href="#">JUMPERS</a></li>
         <li><a href="#">LEGGINGS</a></li>
       </ul>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item"><%= link_to_prev_page @products, "Previous", class: "page-link" %></li>
+          <li class="page-item"><%= link_to_next_page @products, "Next", class: "page-link" %></li>
+        </ul>
+      </nav>
+
+      <br>
+
       <div class="row">
-        <% @products[0...8].each do |product| %>
+        <% @products.each do |product| %>
           <%= render "product", {product: product}%>
         <% end %>
       </div>
       <div class="text-center pt-5">
-        <button class="site-btn sb-line sb-dark">LOAD MORE</button>
+        <%= link_to_next_page @products, "LOAD MORE", class: "site-btn sb-line sb-dark" %>
       </div>
       <br>
       <br>
