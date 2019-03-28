@@ -1,11 +1,18 @@
-<% if @current_item != nil %>
-  <% if @current_item.id == line_item.id %>
-<tr id="current_item">
-  <% else %>
 <tr>
-  <% end %>
-<% end %>
-    <td><%= line_item.quantity%>x</td>
-    <td><%= line_item.product.product_name %></td>
-    <td class="item_price"><%= number_to_currency(line_item.total_price) %></td>
+  <td class="product-col">
+    <img><%= image_tag(line_item.product.image.split(/,/).first) %>
+    <div class="pc-title">
+      <h4><%= line_item.product.product_name %></h4>
+      <p>$<%= line_item.product.discounted_price %></p>
+    </div>
+  </td>
+  <td class="quy-col">
+    <div class="quantity">
+      <div class="pro-qty">
+        <input type="text" value="<%= line_item.quantity %>">
+      </div>
+    </div>
+  </td>
+  <td class="size-col"><h4>Size M</h4></td>
+  <td class="total-col"><h4><%= number_to_currency(line_item.total_price) %></h4></td>
 </tr>

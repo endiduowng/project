@@ -24,11 +24,10 @@
               <% end %>
             </div>
             <div class="up-item">
-              <div class="shopping-card">
-                <i class="flaticon-bag"></i>
-                <span>0</span>
+              <div class="shopping-card" id="cart-header">
+                <%= render "shared/cart_header" %>
               </div>
-              <a href="#">Shopping Cart</a>
+              <%= link_to "Shopping Cart", cart_path(current_cart) %>
             </div>
           </div>
         </div>

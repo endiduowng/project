@@ -132,7 +132,12 @@
             <span class="dec qtybtn">+</span>
           </div>
         </div>
-        <a href="#" class="site-btn">SHOP NOW</a>
+
+        <!-- <a href="#" class="site-btn">SHOP NOW</a> -->
+        <%= button_to 'Add to Cart',
+                          line_items_path(:product_id => @product), class: "site-btn",
+                          :remote => true %>
+
         <div id="accordion" class="accordion-area">
           <div class="panel">
             <div class="panel-header" id="headingOne">

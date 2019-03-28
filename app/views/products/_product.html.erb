@@ -3,7 +3,9 @@
     <div class="pi-pic">
       <%= link_to image_tag(product.image.split(/,/).first, class: "image-product"), product_path(product.id) %>
       <div class="pi-links">
-        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+        <%= link_to product_path(product.id), class: "add-card" do %>
+          <i class="flaticon-bag"></i><span>ADD TO CART</span>
+        <% end %>
         <div class="product-like" id="like-icon-product-<%= product.id.to_s %>">
           <%= render "like_icon", {is_liked: product.is_liked(current_user), product: product} %>
         </div>

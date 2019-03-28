@@ -1,1 +1,2 @@
-<%= link_to "Cart(#{current_cart.line_items.size} items)", cart_path(current_cart), class: "py-2 d-none d-md-inline-block" %>
+<i class="flaticon-bag"></i>
+<span><%= current_cart.line_items.size %></span>
