@@ -44,7 +44,7 @@
       </div>
       <div class="col-lg-6 product-details">
         <h2 class="p-title"><%= @product.product_name %></h2>
-        <h3 class="p-price">$<%= @product.discounted_price %></h3>
+        <h3 class="p-price"><%= @product.discounted_price %>$</h3>
         <h4 class="p-stock">Available: <span>In Stock</span></h4>
         <div class="p-rating">
           <% @product.overall_rating.to_i.times do %>
