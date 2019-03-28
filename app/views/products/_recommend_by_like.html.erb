@@ -1,0 +1,14 @@
+<div class="col-lg-3 col-sm-6">
+  <div class="product-item">
+    <div class="pi-pic">
+      <%= link_to image_tag(product.image.split(/,/).first, class: "image-product"), product_path(product.id) %>
+      <div class="pi-links">
+        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+      </div>
+    </div>
+    <div class="pi-text">
+      <h6><%= product.discounted_price %>$</h6>
+      <p><%= product.product_name %></p>
+    </div>
+  </div>
+</div>
