@@ -20,5 +20,10 @@ class ApplicationController < ActionController::Base
         cart
     end
 
+    def random_product
+      random_product = Product.all[rand(1600)]
+    end
+
   helper_method :current_cart
+  helper_method :random_product
 end
