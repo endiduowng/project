@@ -47,18 +47,18 @@
       <!-- menu -->
       <ul class="main-menu">
         <li><a href="/">Home</a></li>
-        <li><a href="#">Women</a></li>
-        <li><a href="#">Men</a></li>
-        <li><a href="#">Jewelry
+        <li><%= link_to "Women", product_for_women_path %></li>
+        <li><%= link_to "Men", product_for_men_path %></li>
+        <!-- <li><a href="#">Jewelry
           <span class="new">New</span>
-        </a></li>
-        <li><a href="#">Shoes</a>
+        </a></li> -->
+        <li><a href="#">HOTS</a>
           <ul class="sub-menu">
-            <li><a href="#">Sneakers</a></li>
-            <li><a href="#">Sandals</a></li>
-            <li><a href="#">Formal Shoes</a></li>
-            <li><a href="#">Boots</a></li>
-            <li><a href="#">Flip Flops</a></li>
+            <li><%= link_to "Sneakers", sneakers_product_path %></li>
+            <li><%= link_to "Sandals", sandals_product_path %></li>
+            <li><%= link_to "Formal Shoes", shoes_product_path %></li>
+            <li><%= link_to "Boots", boots_product_path %></li>
+            <li><%= link_to "Flip Flops", flip_flops_product_path %></li>
           </ul>
         </li>
         <li><a href="#">Pages</a>
@@ -70,7 +70,6 @@
             <li><a href="#">Contact Page</a></li>
           </ul>
         </li>
-        <li><a href="#">Blog</a></li>
         <% if user_signed_in? %>
           <li style="float: right;">
             <%= link_to purchase_history_path do %>

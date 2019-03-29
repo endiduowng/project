@@ -65,6 +65,41 @@ class ProductsController < ApplicationController
     end
   end
 
+  def product_for_women
+    products = Product.search("women")
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(8)
+  end
+
+  def product_for_men
+    products = Product.search("men")
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(8)
+  end
+
+  def sneakers_product
+    products = Product.search("sneakers")
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(8)
+  end
+
+  def boots_product
+    products = Product.search("boots")
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(8)
+  end
+
+  def shoes_product
+    products = Product.search("shoes")
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(8)
+  end
+
+  def sandals_product
+    products = Product.search("sandals")
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(8)
+  end
+
+  def flip_flops_product
+    products = Product.search("flip flops")
+    @products = Kaminari.paginate_array(products).page(params[:page]).per(8)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

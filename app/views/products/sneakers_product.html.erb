@@ -1,0 +1,42 @@
+<body>
+  <section class="product-filter-section">
+    <div class="container">
+      <br>
+      <div class="section-title">
+        <h2>SNEAKERS PRODUCTS</h2>
+      </div>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item"><%= link_to_prev_page @products, "Previous", class: "page-link" %></li>
+          <li class="page-item"><%= link_to_next_page @products, "Next", class: "page-link" %></li>
+        </ul>
+      </nav>
+
+      <br>
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-lg-3 col-sm-6">
+            <div class="product-item">
+              <div class="pi-pic">
+                <%= link_to image_tag(product.image.split(/,/).first, class: "image-product"), product_path(product.id) %>
+                <div class="pi-links">
+                  <%= link_to product_path(product.id), class: "add-card" do %>
+                    <i class="flaticon-bag"></i><span>ADD TO CART</span>
+                  <% end %>
+                  <div class="product-like" id="like-icon-product-<%= product.id.to_s %>">
+                    <%= render "like_icon", {is_liked: product.is_liked(current_user), product: product} %>
+                  </div>
+                </div>
+              </div>
+              <div class="pi-text">
+                <h6><%= product.discounted_price %>$</h6>
+                <p><%= product.product_name %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+</body>
