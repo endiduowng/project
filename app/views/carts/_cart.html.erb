@@ -38,10 +38,6 @@
         </div>
       </div>
       <div class="col-lg-4 card-right">
-        <form class="promo-code-form">
-          <input type="text" placeholder="Enter promo code">
-          <button>Submit</button>
-        </form>
         <%= button_to 'Empty cart', cart, class: "site-btn sb-dark", :method => :delete, data: {:confirm => 'Are you sure?' } %>
         <%= button_to 'Checkout', new_order_path, :method => :get, class: "site-btn" %>
         <a href="/" class="site-btn sb-dark">Continue shopping</a>

@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   get "search", to: "search#search"
+  get "purchase_history", to: "users#purchase_history"
 end

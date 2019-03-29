@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190317153307) do
+ActiveRecord::Schema.define(version: 20190328173229) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(version: 20190317153307) do
     t.string "pay_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["user_id_id"], name: "index_orders_on_user_id_id"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,13 +57,13 @@ ActiveRecord::Schema.define(version: 20190317153307) do
     t.string "pid"
     t.decimal "retail_price", precision: 10
     t.decimal "discounted_price", precision: 10
-    t.string "image"
+    t.string "image", limit: 6000
     t.string "is_FK_Advantage_product"
-    t.string "description"
+    t.string "description", limit: 6000
     t.float "product_rating", limit: 24
     t.float "overall_rating", limit: 24
     t.string "brand"
-    t.string "product_specifications"
+    t.string "product_specifications", limit: 6000
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -91,4 +95,5 @@ ActiveRecord::Schema.define(version: 20190317153307) do
 
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "orders", "users"
 end

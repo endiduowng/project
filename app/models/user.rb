@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_many :likes
   has_many :products, through: :likes
+  has_many :orders
 
   has_many :reviews
 
