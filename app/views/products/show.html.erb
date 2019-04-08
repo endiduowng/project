@@ -50,7 +50,7 @@
             </div>
             <div class="pi-links">
             <div class="product-like" id="like-icon-product-<%= @product.id.to_s %>">
-                <%= render "like_icon", {is_liked: @product.is_liked(current_user), product: @product} %>
+                <%= render "products/like_icon", {is_liked: @product.is_liked(current_user), product: @product} %>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
         <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
           <div class="product-thumbs-track">
             <% @product.image.split(/,/).each do |a| %>
-            <div class="pt" data-imgbigurl="<%= a %>"><img><%= image_tag(a) %></div>
+            <div class="pt" style="margin-top: 5px;" data-imgbigurl="<%= a %>"><img><%= image_tag(a) %></div>
             <% end %>
           </div>
         </div>
@@ -196,6 +196,7 @@
             </div>
           </div>
         </div>
+
         <div class="social-sharing">
           <a href=""><i class="fa fa-google-plus"></i></a>
           <a href=""><i class="fa fa-pinterest"></i></a>
@@ -205,6 +206,26 @@
         </div>
       </div>
     </div>
+
+    <% if recent_products.size != 0 %>
+      <br>
+      <br>
+      <div class="dropdown-divider"></div>
+      <br>
+      <br>
+
+      <div>
+        <div class="section-title">
+          <h2>RECENT PRODUCTS</h2>
+        </div>
+        <div class="row">
+          <% recent_products.reverse.each do |product| %>
+            <%= render "product", {product: product}%>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
   </div>
 </section>
 

@@ -24,6 +24,16 @@ class ApplicationController < ActionController::Base
       random_product = Product.all[rand(1600)]
     end
 
+    def recent_products
+      @recent_products ||= RecentProducts.new cookies
+    end
+
+    def last_viewed_product
+      recent_products.reverse.second
+    end
+
   helper_method :current_cart
   helper_method :random_product
+
+  helper_method [:recent_products, :last_viewed_product]
 end
