@@ -16,5 +16,7 @@ module Project
     # -- all .rb files in that directory are automatically loaded.
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts', 'javascripts')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf|woff2)$/
+
+    config.eager_load_paths << Rails.root.join("lib/cookie_products")
   end
 end

@@ -14,6 +14,12 @@ class ProductsController < ApplicationController
   def show
     @is_liked = @product.is_liked(current_user)
     @reviews = @product.reviews.to_a
+
+    @product = Product.find_by_id params[:id]
+    recent_products.push @product #=> Đẩy 1 product vừa xem vào collection
+
+    # Lấy toàn bộ danh sách
+    recent_products
   end
 
   # GET /products/new
