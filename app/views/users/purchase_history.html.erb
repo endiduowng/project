@@ -26,9 +26,16 @@
                   <th class="size-th">SizeSize</th>
                   <th class="total-th">Price</th>
                 </tr>
+                <div class="dropdown-divider"></div>
               </thead>
               <tbody>
                 <% @orders.each do |order| %>
+                  <tr>
+                    <td>
+                      <div class="dropdown-divider"></div>
+                      <%= order.created_at %>
+                    </td>
+                  </tr>
                   <%= render order.line_items %>
                 <% end %>
               </tbody>

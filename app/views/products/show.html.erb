@@ -57,10 +57,12 @@
         </div>
 
         <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
-          <div class="product-thumbs-track">
-            <% @product.image.split(/,/).each do |a| %>
-            <div class="pt" style="margin-top: 5px;" data-imgbigurl="<%= a %>"><img><%= image_tag(a) %></div>
-            <% end %>
+          <div class="row" style="margin: auto;">
+            <div class="product-thumbs-track">
+                <% @product.image.split(/,/).each do |a| %>
+                  <div class="col pt img-thumbnail" style="margin-top: 5px;" data-imgbigurl="<%= a %>"><img><%= image_tag(a) %></div>
+                <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -101,6 +103,7 @@
                     <% @reviews.each do |review| %>
                       <div class="reviews">
                         <strong><%= review.user.email %></strong>
+                        <p style="color: #999; float: right;"><%= time_ago_in_words(review.created_at).upcase %> AGO</p>
                         <div class="star-rating" data-score= <%= review.product_rating %> ></div>
                         <p><%= review.comment %></p>
                       </div>
