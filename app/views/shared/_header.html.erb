@@ -61,15 +61,7 @@
             <li><%= link_to "Flip Flops", flip_flops_product_path %></li>
           </ul>
         </li>
-        <li><a href="#">Pages</a>
-          <ul class="sub-menu">
-            <li><a href="#">Product Page</a></li>
-            <li><a href="#">Category Page</a></li>
-            <li><a href="#">Cart Page</a></li>
-            <li><a href="#">Checkout Page</a></li>
-            <li><a href="#">Contact Page</a></li>
-          </ul>
-        </li>
+
         <% if user_signed_in? %>
           <li style="float: right;">
             <%= link_to purchase_history_path do %>

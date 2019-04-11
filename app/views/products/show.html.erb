@@ -210,6 +210,28 @@
       </div>
     </div>
 
+    <% if @similar_products.size %>
+      <br>
+    <br>
+    <div class="dropdown-divider"></div>
+    <br>
+    <br>
+
+    <div>
+      <div class="section-title">
+        <h2>SIMILAR PRODUCTS</h2>
+      </div>
+      <div class="row">
+        <%= render "product", {product: @product1}%>
+        <%= render "product", {product: @product2}%>
+        <%= render "product", {product: @product3}%>
+        <%= render "product", {product: @product4}%>
+      </div>
+    </div>
+    <% else %>
+    sadsa
+    <% end %>
+
     <% if recent_products.size != 0 %>
       <br>
       <br>
