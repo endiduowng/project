@@ -20,6 +20,13 @@ class ProductsController < ApplicationController
 
     # Lấy toàn bộ danh sách
     recent_products
+
+    @similar_products = Product.search("#{@product.product_category_tree.split(/>>/).reverse.second}")
+    ssize = @similar_products.size
+    @product1 = @similar_products[rand(ssize)]
+    @product2 = @similar_products[rand(ssize)]
+    @product3 = @similar_products[rand(ssize)]
+    @product4 = @similar_products[rand(ssize)]
   end
 
   # GET /products/new
