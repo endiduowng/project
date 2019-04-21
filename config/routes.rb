@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   get "search", to: "search#search"
+
   get "purchase_history", to: "users#purchase_history"
+  get "chat", to: "users#chat"
+
   get "product_for_women", to: "products#product_for_women"
   get "product_for_men", to: "products#product_for_men"
   get "sneakers_product", to: "products#sneakers_product"
@@ -27,6 +30,7 @@ Rails.application.routes.draw do
   get "shoes_product", to: "products#shoes_product"
   get "boots_product", to: "products#boots_product"
   get "flip_flops_product", to: "products#flip_flops_product"
+
 
   resources :conversations, only: [:create] do
     member do
