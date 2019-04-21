@@ -27,4 +27,12 @@ Rails.application.routes.draw do
   get "shoes_product", to: "products#shoes_product"
   get "boots_product", to: "products#boots_product"
   get "flip_flops_product", to: "products#flip_flops_product"
+
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+
+    resources :messages, only: [:create]
+  end
 end
