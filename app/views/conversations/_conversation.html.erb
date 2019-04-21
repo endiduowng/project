@@ -1,9 +1,9 @@
 <li>
-  <div class="panel panel-default" data-conversation-id="<%= conversation.id %>" style="border: solid; border-color: gray; border-width: 1px; margin-top: 5px;">
+  <div class="panel panel-default" data-conversation-id="<%= conversation.id %>">
     <div class="panel-heading">
       <%= link_to conversation.opposed_user(user).email, '', class: 'toggle-window' %>
 
-      <%= link_to "x", close_conversation_path(conversation), class: "btn btn-default btn-xs pull-right", remote: true, method: :post %>
+      <%= link_to "x", close_conversation_path(conversation), class: "btn btn-default btn-xs pull-right", remote: true, method: :post, style: "float: right" %>
     </div>
 
     <div class="panel-body" style="display: none;">
@@ -14,8 +14,8 @@
       </div>
       <%= form_for [conversation, conversation.messages.new], remote: true do |f| %>
         <%= f.hidden_field :user_id, value: user.id %>
-        <%= f.text_area :body, class: "form-control col-md-11", style: "margin-left: 10px;" %>
-        <%= f.submit "Send", class: "btn btn-success", style: "margin-top: 10px;" %>
+        <%= f.text_area :body, class: "form-control col-md-11", style: "margin-left: 5px;" %>
+        <%= f.submit "Send", class: "btn btn-success", style: "margin-top: 10px; margin-left: 5px;" %>
       <% end %>
     </div>
   </div>
