@@ -33,4 +33,9 @@ class UsersController < ApplicationController
     @conversations = Conversation.includes(:recipient, :messages)
                                  .find(session[:conversations])
   end
+
+  def recommend_product
+    products = Product.all
+    @recommend_product = products.select {|product| current_user.prediction_for(product) >= 3}
+  end
 end

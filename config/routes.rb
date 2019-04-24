@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get "boots_product", to: "products#boots_product"
   get "flip_flops_product", to: "products#flip_flops_product"
 
+  get "recommend_product", to: "users#recommend_product"
 
   resources :conversations, only: [:create] do
     member do
