@@ -7,8 +7,8 @@ class Product < ApplicationRecord
 
   searchkick
 
-  has_many :likes
-  has_many :users, through: :likes
+  has_many :favorites
+  has_many :users, through: :favorites
 
   has_many :line_items
   has_many :reviews
@@ -17,9 +17,9 @@ class Product < ApplicationRecord
 
   paginates_per 8
 
-  def is_liked user
+  def is_favorited user
     if user
-      Like.find_by(user_id: user.id, product_id: id)
+      Favorite.find_by(user_id: user.id, product_id: id)
     end
   end
 

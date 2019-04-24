@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
 
     def random_product
-      random_product = Product.all[rand(1600)]
+      random_product = Product.all[rand(400)]
     end
 
     def recent_products

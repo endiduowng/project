@@ -1,0 +1,3 @@
+$('#favorite-icon-product-<%= @product.id.to_s %>').
+  html('<%= j render "products/favorite_icon", {is_favorited: @is_favorited, product: @product} %>');
+console.log("create");

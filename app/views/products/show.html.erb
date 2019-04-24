@@ -49,8 +49,8 @@
               </div>
             </div>
             <div class="pi-links">
-            <div class="product-like" id="like-icon-product-<%= @product.id.to_s %>">
-                <%= render "products/like_icon", {is_liked: @product.is_liked(current_user), product: @product} %>
+            <div class="product-favorite" id="favorite-icon-product-<%= @product.id.to_s %>">
+                <%= render "products/favorite_icon", {is_favorited: @product.is_favorited(current_user), product: @product} %>
               </div>
             </div>
           </div>
@@ -72,12 +72,12 @@
         <span>Brand: </span><h3><%= @product.brand %></h3>
         <h4 class="p-stock">Available: <span>In Stock</span></h4>
         <div class="p-rating">
-          <% @product.overall_rating.to_i.times do %>
+          <% @product.reviews.average(:product_rating).to_i.times do %>
           <i class="fa fa-star-o"></i>
           <% end %>
-          <% (5- @product.overall_rating.to_i).times do %>
+          <% (5- @product.reviews.average(:product_rating).to_i).times do %>
           <i class="fa fa-star-o fa-fade"></i>
-          <% end %> | <%= @product.overall_rating || 0 %>
+          <% end %> | <%= @product.reviews.average(:product_rating) || 0 %>
         </div>
 
 
