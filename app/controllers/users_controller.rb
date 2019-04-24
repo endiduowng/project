@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @liked = current_user.likes
+    @favorited = current_user.favorites
   end
 
   def purchase_history

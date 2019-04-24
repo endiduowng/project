@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  has_many :likes
-  has_many :products, through: :likes
+  has_many :favorites
+  has_many :products, through: :favorites
   has_many :orders
 
   has_many :reviews

@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @is_liked = @product.is_liked(current_user)
+    @is_favorited = @product.is_favorited(current_user)
     @reviews = @product.reviews.to_a
 
     @product = Product.find_by_id params[:id]

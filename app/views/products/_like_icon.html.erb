@@ -1,9 +1,0 @@
-<% if is_liked.present? %>
-  <%= link_to like_path(is_liked), class: "wishlist-btn", method: :delete, remote: true do %>
-    <i class="flaticon-heart" style="color: red;"></i>
-  <% end %>
-<% else %>
-  <%= link_to product_likes_path(product), class: "wishlist-btn", method: :post, remote: true do %>
-    <i class="flaticon-heart"></i>
-  <% end %>
-<% end %>

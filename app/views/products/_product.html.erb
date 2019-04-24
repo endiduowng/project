@@ -6,8 +6,8 @@
         <%= link_to product_path(product.id), class: "add-card" do %>
           <i class="flaticon-bag"></i><span>ADD TO CART</span>
         <% end %>
-        <div class="product-like" id="like-icon-product-<%= product.id.to_s %>">
-          <%= render "products/like_icon", {is_liked: product.is_liked(current_user), product: product} %>
+        <div class="product-favorite" id="favorite-icon-product-<%= product.id.to_s %>">
+          <%= render "products/favorite_icon", {is_favorited: product.is_favorited(current_user), product: product} %>
         </div>
       </div>
     </div>

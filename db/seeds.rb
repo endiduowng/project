@@ -6813,10 +6813,11 @@ Product.create(
 require 'faker'
 include Faker
 
-User.destroy_all
-
 # using faker gem to create unique names to create users
 n = 0;
+
+
+User.destroy_all
 
 30.times do |n|
   name  = Faker::Name.name
@@ -6829,12 +6830,22 @@ n = 0;
 end
 
 
-200.times do
+Favorite.destroy_all
+
+300.times do
   user = User.all[rand(0...30)]
   product = Product.all[rand(0...400)]
   if user.products.include?(product)
     next
   else
     user.products << product
+  end
+end
+
+Review.destroy_all
+
+30.times do |n|
+  10.times do |m|
+    Review.create!(product_rating: rand(1..5), comment: "aaa#{n}", product_id: n+m+10, user_id: n+1)
   end
 end

@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 20190420104302) do
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
-  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "product_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_likes_on_product_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["product_id"], name: "index_favorites_on_product_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "line_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -75,13 +75,13 @@ ActiveRecord::Schema.define(version: 20190420104302) do
     t.string "pid"
     t.decimal "retail_price", precision: 10
     t.decimal "discounted_price", precision: 10
-    t.string "image", limit: 6000
+    t.string "image"
     t.string "is_FK_Advantage_product"
-    t.string "description", limit: 6000
+    t.string "description"
     t.float "product_rating", limit: 24
     t.float "overall_rating", limit: 24
     t.string "brand"
-    t.string "product_specifications", limit: 6000
+    t.string "product_specifications"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(version: 20190420104302) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "likes", "products"
-  add_foreign_key "likes", "users"
+  add_foreign_key "favorites", "products"
+  add_foreign_key "favorites", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "orders", "users"

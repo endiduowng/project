@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :reviews
-    resources :likes, only: [:create, :destroy], shallow: true
+    resources :favorites, only: [:create, :destroy], shallow: true
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'products#index'
