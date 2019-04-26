@@ -34,6 +34,12 @@ class ReviewsController < ApplicationController
         score = @product.reviews.average(:product_rating)
         @product.update_attributes overall_rating: score
 
+        if @review.product_rating >= 3
+          current_user.like(@product)
+        else
+          current_user.dislike(@product)
+        end
+
         format.html { redirect_to @product, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else

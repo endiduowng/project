@@ -19,6 +19,8 @@ class User < ApplicationRecord
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
 
+  recommends :products
+
   include Recommendation
 
   # nhan dang tai khoan twitter

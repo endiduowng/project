@@ -6846,6 +6846,14 @@ Review.destroy_all
 
 30.times do |n|
   10.times do |m|
-    Review.create!(product_rating: rand(1..5), comment: "aaa#{n}", product_id: n+m+10, user_id: n+1)
+    rate = rand(1..5)
+    review = Review.create!(product_rating: rate, comment: "aaa#{n}", product_id: n+m+10, user_id: n+1)
+    user = User.find(n+1)
+    product = Product.find(n+m+10)
+    if rate >= 3
+      user.like(product)
+    else
+      user.dislike(product)
+    end
   end
 end
