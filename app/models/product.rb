@@ -23,6 +23,14 @@ class Product < ApplicationRecord
     end
   end
 
+  def liked_by
+    return self.reviews.select {|user| user.product_rating >= 3}
+  end
+
+  def disliked_by
+    return self.reviews.select {|user| user.product_rating < 3}
+  end
+
 private
 
     def check_if_has_line_item
