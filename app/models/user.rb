@@ -34,4 +34,29 @@ class User < ApplicationRecord
       user.provider = auth.provider
     end
   end
+
+  def similarity_with(user)
+    # Array#& is the set intersection operator.
+    agreements = (self.likes & user.likes).size
+    agreements += (self.dislikes & user.dislikes).size
+
+    disagreements = (self.likes & user.dislikes).size
+    disagreements += (self.dislikes & user.likes).size
+
+    # Array#| is the set union operator
+    total = (self.likes + self.dislikes) | (user.likes + user.dislikes)
+
+    return (agreements - disagreements) / total.size.to_f
+  end
+
+  def prediction_for(item)
+    hive_mind_sum = 0.0
+    rated_by = item.liked_by.size + item.disliked_by.size
+
+    item.liked_by.each { |u| hive_mind_sum += self.similarity_with(u) }
+    item.disliked_by.each { |u| hive_mind_sum -= self.similarity_with(u) }
+
+    return hive_mind_sum / rated_by.to_f
+  end
+
 end

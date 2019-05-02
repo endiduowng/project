@@ -65,6 +65,8 @@
         <% if user_signed_in? %>
           <li><%= link_to "Chat with other users", chat_path %></li>
 
+          <li><%= link_to "Recommend product", recommend_product_path %></li>
+
           <li style="float: right;">
             <%= link_to purchase_history_path do %>
               <i class="flaticon-bag"></i>Purchase History

@@ -33,7 +33,6 @@ Rails.application.routes.draw do
   get "boots_product", to: "products#boots_product"
   get "flip_flops_product", to: "products#flip_flops_product"
 
-
   resources :conversations, only: [:create] do
     member do
       post :close
@@ -41,4 +40,6 @@ Rails.application.routes.draw do
 
     resources :messages, only: [:create]
   end
+
+  get "recommend_product", to: "users#recommend_product"
 end

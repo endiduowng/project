@@ -33,4 +33,10 @@ class UsersController < ApplicationController
     @conversations = Conversation.includes(:recipient, :messages)
                                  .find(session[:conversations])
   end
+
+  def recommend_product
+    products = Product.all
+    @result_products = products.select {|product| current_user.prediction_for(product) > 0}
+    @recommend_products = @result_products.sort.reverse
+  end
 end
