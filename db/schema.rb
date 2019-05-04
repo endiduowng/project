@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190420104302) do
+ActiveRecord::Schema.define(version: 20190504051151) do
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -75,15 +75,22 @@ ActiveRecord::Schema.define(version: 20190420104302) do
     t.string "pid"
     t.decimal "retail_price", precision: 10
     t.decimal "discounted_price", precision: 10
-    t.string "image"
+    t.string "image", limit: 6000
     t.string "is_FK_Advantage_product"
-    t.string "description"
+    t.string "description", limit: 6000
     t.float "product_rating", limit: 24
     t.float "overall_rating", limit: 24
     t.string "brand"
-    t.string "product_specifications"
+    t.string "product_specifications", limit: 6000
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "recommends", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.string "recommend_id"
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

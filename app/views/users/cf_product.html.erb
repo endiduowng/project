@@ -7,10 +7,11 @@
 
     <div class="container">
       <div class="row">
-        <% @recommend_products[0...8].each do |product| %>
+        <% @cf_pros[0...4].each do |product| %>
           <%= render "products/product", {product: product} %>
         <% end %>
       </div>
     </div>
   </section>
 </body>
+
