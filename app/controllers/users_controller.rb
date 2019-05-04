@@ -39,4 +39,16 @@ class UsersController < ApplicationController
     @result_products = products.select {|product| current_user.prediction_for(product) > 0}
     @recommend_products = @result_products.sort.reverse
   end
+
+  def cf_product
+    system('python ./lib/cf.py')
+    @cf_pros = []
+    a = Recommend.find_by(user_id: current_user.id)
+    b = a.recommend_id
+    c = b[1...(b.size - 1)]
+    @ds = c.split(/,/)
+    @ds.each do |ds|
+      @cf_pros << Product.find_by(id: ds.to_i)
+    end
+  end
 end

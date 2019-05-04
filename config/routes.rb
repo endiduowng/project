@@ -42,4 +42,6 @@ Rails.application.routes.draw do
   end
 
   get "recommend_product", to: "users#recommend_product"
+
+  get "cf_product", to: "users#cf_product"
 end
