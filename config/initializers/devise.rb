@@ -298,4 +298,5 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.omniauth :twitter, "RuggmH430TfwD6jWNoXuB9cpD", "Zs1KcHxtZ6zPLhYOQBDbFLKPKik3Ue9FC7G2538vGdrlDXgW2D"
+  config.omniauth :facebook, "2706209179420858", "366c69b24de5aa7e44c67dac458fa746", callback_url: "http://localhost:3000/users/auth/facebook/callback"
 end

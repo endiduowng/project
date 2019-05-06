@@ -23,7 +23,14 @@ class User < ApplicationRecord
 
   include Recommendation
 
-  # nhan dang tai khoan twitter
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -58,5 +65,4 @@ class User < ApplicationRecord
 
     return hive_mind_sum / rated_by.to_f
   end
-
 end
