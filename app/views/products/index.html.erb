@@ -74,6 +74,20 @@
         </div>
       </div>
 
+      <div class="dropdown-divider"></div>
+      <br>
+      <br>
+      <div>
+        <div class="section-title">
+          <h2>TOP VIEWS PRODUCTS</h2>
+        </div>
+        <div class="row">
+          <% @top_views[0...4].each do |product| %>
+            <%= render "product", {product: product}%>
+          <% end %>
+        </div>
+      </div>
+
       <% if recent_products.size != 0 %>
         <div class="dropdown-divider"></div>
         <br>
