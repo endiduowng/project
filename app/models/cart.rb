@@ -8,6 +8,7 @@ class Cart < ApplicationRecord
     else
       current_item = line_items.build(:product_id => product_id)
     end
+    # current_item.price_unit = product_id.discounted_price
     current_item
   end
 
