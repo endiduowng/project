@@ -1,6 +1,9 @@
-<h1>Editing Review</h1>
+<div class="container" style="padding:auto;">
+  <h1>Edit Review</h1>
 
-<%= render 'form', review: @review %>
-
-<%= link_to 'Show', @review %> |
-<%= link_to 'Back', reviews_path %>
+  <section>
+    <div class="container">
+      <%= render 'form', {review: @review, product: @product} %>
+    </div>
+  </section>
+</div>
