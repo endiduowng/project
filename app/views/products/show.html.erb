@@ -106,6 +106,14 @@
                         <p style="color: #999; float: right;"><%= time_ago_in_words(review.created_at).upcase %> AGO</p>
                         <div class="star-rating" data-score= <%= review.product_rating %> ></div>
                         <p><%= review.comment %></p>
+                        <% if current_user.id == review.user_id %>
+                          <%= link_to edit_product_review_path(review.product, review) do %>
+                            <ion-icon name="create"></ion-icon>
+                          <% end %>
+                          <%= link_to review_path(review), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                            <ion-icon name="trash"></ion-icon>
+                          <% end %>
+                        <% end %>
                       </div>
                     <% end %>
                   <% end %>
