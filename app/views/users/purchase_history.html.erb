@@ -23,7 +23,7 @@
                   <tr>
                     <th class="product-th">Product</th>
                     <th class="quy-th">Quantity</th>
-                    <th class="size-th">SizeSize</th>
+                    <th class="size-th">Size</th>
                     <th class="total-th">Price</th>
                   </tr>
                   <div class="dropdown-divider"></div>
@@ -36,7 +36,26 @@
                         <%= order.created_at %>
                       </td>
                     </tr>
-                    <%= render order.line_items %>
+                    <% order.line_items.each do |line_item| %>
+                      <tr>
+                        <td class="product-col">
+                          <img><%= image_tag(line_item.product.image.split(/,/).first) %>
+                          <div class="pc-title">
+                            <h4><%= line_item.product.product_name %></h4>
+                            <p>$<%= line_item.price_unit %></p>
+                          </div>
+                        </td>
+                        <td class="quy-col">
+                          <div class="quantity">
+                            <div class="pro-qty">
+                              <input type="text" value="<%= line_item.quantity %>" readonly>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="size-col"><h4>Size M</h4></td>
+                        <td class="total-col"><h4><%= number_to_currency(line_item.total_price) %></h4></td>
+                      </tr>
+                    <% end %>
                   <% end %>
                 </tbody>
               </table>

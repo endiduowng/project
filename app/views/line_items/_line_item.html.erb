@@ -9,10 +9,18 @@
   <td class="quy-col">
     <div class="quantity">
       <div class="pro-qty">
-        <input type="text" value="<%= line_item.quantity %>">
+        <input type="text" value="<%= line_item.quantity %>" readonly>
       </div>
     </div>
   </td>
   <td class="size-col"><h4>Size M</h4></td>
   <td class="total-col"><h4><%= number_to_currency(line_item.total_price) %></h4></td>
+  <td>
+    <%= link_to edit_line_item_path(line_item) do %>
+      <ion-icon name="create"></ion-icon>
+    <% end %>
+    <%= link_to line_item_path(line_item), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <ion-icon name="trash"></ion-icon>
+    <% end %>
+  </td>
 </tr>
