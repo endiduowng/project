@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @order.name %>
@@ -16,9 +14,15 @@
 </p>
 
 <p>
-  <strong>Pay type:</strong>
-  <%= @order.pay_type %>
+  <strong>Pay type: Paypal</strong>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<p>
+  <strong>Trasaction_id:</strong>
+  <%= @order.transaction_id %>
+</p>
+
+<p>
+  <strong>Purchased_at:</strong>
+  <%= @order.purchased_at %>
+</p>
