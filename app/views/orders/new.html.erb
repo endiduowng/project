@@ -44,14 +44,10 @@
                   <input type="text" placeholder="Zip code">
                 </div>
                 <div class="col-md-6">
-                  <input type="text" placeholder="Phone no.">
-                </div>
-                <div class="col-md-6">
-                  <%= f.label :Payment_by %>
-                  <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Select a payment method' %>
+                   <%= f.text_field :phone, placeholder: "Phone" %>
                 </div>
 
-                <%= f.submit "Place Order", class: "site-btn submit-order-btn" %>
+                <%= f.submit "Payment with Paypal", class: "site-btn submit-order-btn" %>
               </div>
             <% end %>
         </div>

@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    @cart = current_cart
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(current_cart)
 
@@ -36,7 +37,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        format.html { redirect_to '/', notice: 'Thank you for your order' }
+        format.html { redirect_to @order.paypal_url(order_path(@order), @order)}
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -69,6 +70,17 @@ class OrdersController < ApplicationController
     end
   end
 
+  protect_from_forgery except: [:hook]
+    def hook
+      params.permit! # Permit all Paypal input params
+      status = params[:payment_status]
+      if status == "Completed"
+        @order = Order.find params[:invoice]
+        @order.update_attributes notification_params: params, status: status, transaction_id: params[:txn_id], purchased_at: Time.now
+      end
+      render nothing: true
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -77,6 +89,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type, :user_id)
+      params.require(:order).permit(:name, :address, :email, :phone, :user_id)
     end
 end

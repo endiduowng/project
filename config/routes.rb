@@ -44,4 +44,7 @@ Rails.application.routes.draw do
   get "recommend_product", to: "users#recommend_product"
 
   get "cf_product", to: "users#cf_product"
+
+  post "/orders/:id" => "orders#show"
+  post "/hook" => "orders#hook"
 end
