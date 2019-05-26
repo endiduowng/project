@@ -32,21 +32,25 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.build(review_params)
 
     respond_to do |format|
-      if @review.save
-        score = @product.reviews.average(:product_rating)
-        @product.update_attributes overall_rating: score
-
-        if @review.product_rating >= 3
-          current_user.like(@product)
-        else
-          current_user.dislike(@product)
-        end
-
-        format.html { redirect_to @product, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
+      if !@review.product_rating
+          format.html { redirect_to @product, alert: 'Review was error created.' }
       else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+        if @review.save
+          score = @product.reviews.average(:product_rating)
+          @product.update_attributes overall_rating: score
+
+          if @review.product_rating >= 3
+            current_user.like(@product)
+          else
+            current_user.dislike(@product)
+          end
+
+          format.html { redirect_to @product, notice: 'Review was successfully created.' }
+          format.json { render :show, status: :created, location: @review }
+        else
+          format.html { render :new }
+          format.json { render json: @review.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
