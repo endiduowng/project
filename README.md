@@ -1,24 +1,50 @@
-# README
+How to run
+Setup development environment:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Go here: https://gorails.com/setup, choose your OS's version and following instructions to install Ruby, Rails and MySQL.
+Download source code, library:
 
-Things you may want to cover:
+Download source code and open terminal inside it:
 
-* Ruby version
+$ cd project
 
-* System dependencies
+Then install library:
 
-* Configuration
+$ bundle install
 
-* Database creation
+Create database, table and data
 
-* Database initialization
+Update MySQL's username, password to file database.yml
 
-* How to run the test suite
+Create database:
 
-* Services (job queues, cache servers, search engines, etc.)
+$ rails db:create
 
-* Deployment instructions
+Create tables using migration:
 
-* ...
+$ rails db:migrate
+
+Seed some data to database:
+
+$ rails db:seed
+
+Go here: https://iridakos.com/tutorials/2017/12/03/elasticsearch-and-rails-tutorial.html to install elasticsearch
+
+Go here https://ngrok.com/download to install ngrok(the environment which support payment by paypal)
+
+Install python to compile python file(to run recommended algorithm):
+
+$ sudo apt-get install python
+
+then install pymysql:
+$ sudo apt-get install python3-pymysql
+
+Server
+
+Finally, run rails server:
+
+$ rails server
+
+Open browser and go to address: "localhost:3000"
+
+Hope you enjoy it!
