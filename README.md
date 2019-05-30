@@ -30,7 +30,7 @@ $ rails db:seed
 
 Go here: https://iridakos.com/tutorials/2017/12/03/elasticsearch-and-rails-tutorial.html to install elasticsearch
 
-Go here https://ngrok.com/download to install ngrok(the environment which support payment by paypal)
+Go here: https://ngrok.com/download to install ngrok(the environment which support payment by paypal)
 
 Install python to compile python file(to run recommended algorithm):
 

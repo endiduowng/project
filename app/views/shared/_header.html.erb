@@ -27,15 +27,22 @@
               <i class="flaticon-profile"></i>
               <% if user_signed_in? %>
                 <%= link_to "#{current_user.email}", user_path(current_user) %>
+
+                <% if current_user.role == 1 %>
+                  <%= link_to "/admin" do %>
+                    <ion-icon name="settings"></ion-icon>Admin page
+                  <% end %>
+                <% else %>
+                  <div class="up-item">
+                    <div class="shopping-card" id="cart-header">
+                      <%= render "shared/cart_header" %>
+                    </div>
+                    <%= link_to "Shopping Cart", cart_path(current_cart) %>
+                  </div>
+                <% end %>
               <% else %>
                 <%= link_to "Sign In", new_user_session_path %> or <%= link_to "Create Account", new_user_registration_path %>
               <% end %>
-            </div>
-            <div class="up-item">
-              <div class="shopping-card" id="cart-header">
-                <%= render "shared/cart_header" %>
-              </div>
-              <%= link_to "Shopping Cart", cart_path(current_cart) %>
             </div>
           </div>
         </div>

@@ -6857,3 +6857,5 @@ Review.destroy_all
     end
   end
 end
+
+User.create!(name: "duong", email: "duong@gmail.com", password: "123456", password_confirmation: "123456", role: 1)
