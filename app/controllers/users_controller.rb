@@ -41,14 +41,29 @@ class UsersController < ApplicationController
   end
 
   def cf_product
-    system('python ./lib/cf.py')
+    # system('python ./lib/cf.py')
+    # @cf_pros = []
+    # a = Recommend.find_by(user_id: current_user.id)
+    # b = a.recommend_id
+    # c = b[1...(b.size - 1)]
+    # @ds = c.split(/,/)
+    # @ds.each do |ds|
+    #   @cf_pros << Product.find_by(id: ds.to_i)
+    # end
+
+    system('python ./lib/cf1.py')
     @cf_pros = []
-    a = Recommend.find_by(user_id: current_user.id)
-    b = a.recommend_id
-    c = b[1...(b.size - 1)]
-    @ds = c.split(/,/)
-    @ds.each do |ds|
-      @cf_pros << Product.find_by(id: ds.to_i)
+    a = IRecommend.all
+    a.each do |item|
+      b = item.recommend_list
+      c = b[1...(b.size - 1)]
+      @ds = c.split(/,/)
+      @ds.each do |ds|
+        id = ds.to_i
+        if id == current_user.id
+          @cf_pros << Product.find_by(id: item.item_id)
+        end
+      end
     end
   end
 end
