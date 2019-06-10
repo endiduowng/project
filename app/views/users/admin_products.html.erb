@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Settings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <th scope="row"><%= product.id %></th>
+          <td><%= product.product_name %></td>
+          <td><%= product.discounted_price %></td>
+          <td><ion-icon name="create"></ion-icon><ion-icon name="trash"></ion-icon></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @products, :param_name => 'products_page' %>
+</div>

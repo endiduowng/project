@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Settings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <th scope="row"><%= user.id %></th>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= link_to edit_user_path(user) do %><ion-icon name="create"></ion-icon><% end %><ion-icon name="trash"></ion-icon></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= paginate @users, :param_name => 'users_page' %>
+</div>

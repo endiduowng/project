@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-2 text-center text-lg-left">
-          <a href="/" class="site-logo">
+          <a href="http://localhost:3000" class="site-logo">
             <h2>Home</h2>
           </a>
         </div>
@@ -51,34 +51,73 @@
   </div>
   <nav class="main-navbar">
     <div class="container">
-      <!-- menu -->
-      <ul class="main-menu">
-        <li><a href="/">Home</a></li>
-        <li><%= link_to "Women", product_for_women_path %></li>
-        <li><%= link_to "Men", product_for_men_path %></li>
-        <!-- <li><a href="#">Jewelry
-          <span class="new">New</span>
-        </a></li> -->
-        <li><a href="#">HOTS</a>
-          <ul class="sub-menu">
-            <li><%= link_to "Sneakers", sneakers_product_path %></li>
-            <li><%= link_to "Sandals", sandals_product_path %></li>
-            <li><%= link_to "Formal Shoes", shoes_product_path %></li>
-            <li><%= link_to "Boots", boots_product_path %></li>
-            <li><%= link_to "Flip Flops", flip_flops_product_path %></li>
+      <% if user_signed_in? %>
+        <% if current_user.role == 1 %>
+          <ul class="main-menu">
+            <li><%= link_to "Users", admin_users_path %></li>
+            <li><%= link_to "Products", admin_products_path %></li>
+            <li><%= link_to "Orders", product_for_men_path %></li>
           </ul>
-        </li>
+        <% else %>
+          <!-- menu -->
+          <ul class="main-menu">
+            <li><a href="/">Home</a></li>
+            <li><%= link_to "Women", product_for_women_path %></li>
+            <li><%= link_to "Men", product_for_men_path %></li>
+            <!-- <li><a href="#">Jewelry
+              <span class="new">New</span>
+            </a></li> -->
+            <li><a href="#">HOTS</a>
+              <ul class="sub-menu">
+                <li><%= link_to "Sneakers", sneakers_product_path %></li>
+                <li><%= link_to "Sandals", sandals_product_path %></li>
+                <li><%= link_to "Formal Shoes", shoes_product_path %></li>
+                <li><%= link_to "Boots", boots_product_path %></li>
+                <li><%= link_to "Flip Flops", flip_flops_product_path %></li>
+              </ul>
+            </li>
 
-        <% if user_signed_in? %>
-          <li><%= link_to "Recommend product", cf_product_path %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Recommend product", cf_product_path %></li>
 
-          <li style="float: right;">
-            <%= link_to purchase_history_path do %>
-              <i class="flaticon-bag"></i>Purchase History
+              <li style="float: right;">
+                <%= link_to purchase_history_path do %>
+                  <i class="flaticon-bag"></i>Purchase History
+                <% end %>
+              </li>
             <% end %>
-          </li>
+          </ul>
         <% end %>
-      </ul>
+      <% else %>
+        <!-- menu -->
+        <ul class="main-menu">
+          <li><a href="/">Home</a></li>
+          <li><%= link_to "Women", product_for_women_path %></li>
+          <li><%= link_to "Men", product_for_men_path %></li>
+          <!-- <li><a href="#">Jewelry
+            <span class="new">New</span>
+          </a></li> -->
+          <li><a href="#">HOTS</a>
+            <ul class="sub-menu">
+              <li><%= link_to "Sneakers", sneakers_product_path %></li>
+              <li><%= link_to "Sandals", sandals_product_path %></li>
+              <li><%= link_to "Formal Shoes", shoes_product_path %></li>
+              <li><%= link_to "Boots", boots_product_path %></li>
+              <li><%= link_to "Flip Flops", flip_flops_product_path %></li>
+            </ul>
+          </li>
+
+          <% if user_signed_in? %>
+            <li><%= link_to "Recommend product", cf_product_path %></li>
+
+            <li style="float: right;">
+              <%= link_to purchase_history_path do %>
+                <i class="flaticon-bag"></i>Purchase History
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </nav>
 </header>
