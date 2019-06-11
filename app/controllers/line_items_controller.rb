@@ -35,12 +35,16 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to('/', :notice => 'Line item was successfully created') }
-        format.js   { @current_item = @line_item }
+        format.js   { @current_item = @line_item, flash[:notice] = "Product was added to cart" }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
+    end
+
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
     end
   end
 
