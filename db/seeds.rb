@@ -93,23 +93,6 @@ Product.create(
    "product_specifications": "{product_specification=>[{key=>Pet Type,value=>Dog}, {key=>Brand,value=>Sicons}, {key=>Quantity,value=>500 ml}, {key=>Model Number,value=>SH.DF-14}, {key=>Type,value=>All Purpose}, {key=>Fragrance,value=>Arnica}, {key=>Form Factor,value=>Liquid}, {key=>Sales Package,value=>Shampoo Sicons Dog Fashion Arnica}]}"
  },
  {
-   "uniq_id": "c2a17313954882c1dba461863e98adf2",
-   "crawl_timestamp": "2016-03-25 22:59:23 +0000",
-   "product_url": "http://www.flipkart.com/eternal-gandhi-super-series-crystal-paper-weights-silver-finish/p/itmeb7h2hrfgutxb?pid=PWTEB7H2E4KCYUE3",
-   "product_name": "Eternal Gandhi Super Series Crystal Paper Weights  with Silver Finish",
-   "product_category_tree": "Eternal Gandhi Super Series Crystal Paper Weight...",
-   "pid": "PWTEB7H2E4KCYUE3",
-   "retail_price": 430,
-   "discounted_price": 430,
-   "image": "http://img5a.flixcart.com/image/paper-weight/u/e/3/eternal-gandhi-gandhi-paper-weight-mark-v-1100x1100-imaeb8adyf3xmqhf.jpeg,http://img5a.flixcart.com/image/paper-weight/u/e/3/eternal-gandhi-gandhi-paper-weight-mark-v-original-imaeb8adyf3xmqhf.jpeg",
-   "is_FK_Advantage_product": false,
-   "description": "Key Features of Eternal Gandhi Super Series Crystal Paper Weights  with Silver Finish Crystal  paper weight Product Dimensions :   8cm x  8cm x 5cm A beautiful product Material: Crystal,Eternal Gandhi Super Series Crystal Paper Weights  with Silver Finish (Set Of 1, Clear) Price: Rs. 430 Your office desk will sparkle and shine when you accent tables with this elegant crystal paper weight. The multifaceted crystal features Gandhijiâ€™s bust and his timeless message â€“ â€œMy life is my message â€“ M.K. Gandhiâ€. A beautiful product to gift to your near and dear ones in family and Business.,Specifications of Eternal Gandhi Super Series Crystal Paper Weights  with Silver Finish (Set Of 1, Clear) General Model Name Gandhi Paper Weight Mark V Dimensions Weight 323 g In the Box Paper Weight Paper Weight Features Paper Weight Material Crystal Paper Weight Finish Silver Finish",
-   "product_rating": 0,
-   "overall_rating": 0,
-   "brand": "Eternal Gandhi",
-   "product_specifications": "{product_specification=>[{key=>Model Name,value=>Gandhi Paper Weight Mark V}, {key=>Weight,value=>323 g}, {value=>Paper Weight}, {key=>Paper Weight Material,value=>Crystal}, {key=>Paper Weight Finish,value=>Silver Finish}]}"
- },
- {
    "uniq_id": "ce5a6818f7707e2cb61fdcdbba61f5ad",
    "crawl_timestamp": "2016-03-25 22:59:23 +0000",
    "product_url": "http://www.flipkart.com/alisha-solid-women-s-cycling-shorts/p/itmeh2ftwkzykhcg?pid=SRTEH2FVVKRBAXHB",
