@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def purchase_history
     @ss = []
-    @orders = current_user.orders
+    @orders = current_user.orders.where(status: "Completed")
     if @orders != nil
       @orders.each do |order|
         @line_items = order.line_items
