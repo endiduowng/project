@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     #   @cf_pros << Product.find_by(id: ds.to_i)
     # end
 
-    system('python ./lib/cf1.py')
+    # system('python ./lib/cf1.py')
     @cf_pros = []
     a = IRecommend.all
     a.each do |item|
@@ -65,5 +65,20 @@ class UsersController < ApplicationController
         end
       end
     end
+  end
+
+  def admin_users
+    users = User.all
+    @users = Kaminari.paginate_array(users).page(params[:users_page]).per(8)
+  end
+
+  def admin_products
+    products = Product.all
+    @products = Kaminari.paginate_array(products).page(params[:products_page]).per(8)
+  end
+
+  def admin_orders
+    order = Order.all
+    @order =Kaminari.paginate_array(orders).page(params[:orders_page]).per(8)
   end
 end

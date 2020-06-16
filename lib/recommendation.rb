@@ -11,7 +11,7 @@ module Recommendation
     other_users.each do |user|
 
       # find the products this user and another user both liked
-      # nhung phim ma cac user khac va user dang xet deu xem
+      # nhung sp ma cac user khac va user dang xet deu xem
       common_products = user.products & self.products
 
       # calculate the weight (recommendation rating)

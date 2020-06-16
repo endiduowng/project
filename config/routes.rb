@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :line_items
   resources :carts
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users,
     path: '',
     path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
@@ -24,6 +24,9 @@ Rails.application.routes.draw do
 
   get "purchase_history", to: "users#purchase_history"
   get "chat", to: "users#chat"
+  get "admin_products", to: "users#admin_products"
+  get "admin_users", to: "users#admin_users"
+  get "admin_orders", to: "users#admin_orders"
 
   get "product_for_women", to: "products#product_for_women"
   get "product_for_men", to: "products#product_for_men"
